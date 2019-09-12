@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-08-06"
 
 keywords: troubleshooting, support, reference, number, error, 503, 301, redirects, https, moved, akamai-x-cache, cloud object storage
 
@@ -84,7 +84,7 @@ When your I{{site.data.keyword.cloud_notm}} CDN is configured to use COS as the 
 ## I can't connect through a `curl` command or browser using the Hostname with HTTPS.
 {: #i-cant-conect-through-a-curl-command-or-browser-using-the-hostname-with-https}
 
-If your CDN was created using HTTPS with a Wildcard certificate, the connection must be made using the CNAME; for example, `https://www.exampleCname.cdnedge.bluemix.net`. This includes **all** CDNs created with HTTPS prior to 18 June 2018. Trying to connect using the Hostname will result in an error.
+If your CDN was created using HTTPS with a Wildcard certificate, the connection must be made using the CNAME; for example, `https://www.exampleCname.cdn.appdomain.cloud`. This includes **all** CDNs created with HTTPS prior to 18 June 2018. Trying to connect using the Hostname will result in an error.
 
 ## What is the expected behavior when loading the CNAME or hostname on your browser for the supported protocols?
 {: #what-is-the-expected-behavior-when-loading-the-cname-or-hostname-on-your-browser-for-the-supported-protocols}
@@ -112,7 +112,7 @@ This table shows the behavior expected for the supported protocols when loading 
 <td> `http://hostname` </td>
 <td> Successful load </td>
 <td> 301 Moved permanently </td>
-<td> Successful load </td>
+<td> Access denied<sup>&#42;</sup> </td>
 <td> 301 Moved permanently </td>
 <td> Successful load </td>
 </tr>
@@ -127,7 +127,7 @@ This table shows the behavior expected for the supported protocols when loading 
 <tr>
 		<td> `http://cname` </td>
 		<td> 301 Moved permanently </td>
-		<td> Successful load </td>
+		<td> Access denied<sup>&#42;</sup> </td>
 		<td> 301 Moved permanently </td>
 		<td> Successful load </td>
 		<td> 301 Moved permanently </td>
@@ -143,6 +143,8 @@ This table shows the behavior expected for the supported protocols when loading 
 </tbody>
 </table>
 
+<small>\* The expected behavior was changed to `Access denied` for the domain mappings created since 08/05/2019. The expected behavior is keeping `Successful load` for the domain mappings created before 08/05/2019.</small>
+
 **Common error messages:**
 
 A `301 Moved permanently` message most likely indicates you are attempting to reach a CDN with an `HTTPS` or `HTTP_AND_HTTPS` protocol using the hostname. Due to a limitation with the HTTPS wildcard certificate, you **must** use the CNAME for access to your CDN.
@@ -153,6 +155,6 @@ The `Access denied` message is seen when you're trying to reach a CDN using an i
 
 **A possible redirect error:**
 
-The behavior of a URL redirecting to {{site.data.keyword.cloud_notm}} CDN webpage is seen most often when the URL is incorrect for the protocol. If your CDN is created with a protocol of HTTPS or HTTPS_AND_HTTPS, you must use the CNAME for access to your CDN. For example: `https://examplecname.cdnedge.bluemix.net` for HTTPS mappings or `http://examplecname.cdnedge.bluemix.net` or `https://examplecname.cdnedge.bluemix.net` for HTTP_AND_HTTPS mappings.
+The behavior of a URL redirecting to {{site.data.keyword.cloud_notm}} CDN webpage is seen most often when the URL is incorrect for the protocol. If your CDN is created with a protocol of HTTPS or HTTPS_AND_HTTPS, you must use the CNAME for access to your CDN. For example: `https://examplecname.cdn.appdomain.cloud` for HTTPS mappings or `http://examplecname.cdn.appdomain.cloud` or `https://examplecname.cdn.appdomain.cloud` for HTTP_AND_HTTPS mappings.
 
 The URL redirects to {{site.data.keyword.cloud_notm}} CDN webpage in this case because both the protocol and domain are incorrect for the CDN's protocol. For a CDN created with HTTP as the _only_ protocol, it can be reached _only_ by means of the hostname. For example, `http://example.com`.

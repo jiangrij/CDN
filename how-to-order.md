@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017,2018, 2019
-lastupdated: "2019-04-04"
+lastupdated: "2019-08-09"
 
 keywords: order, create, configure, console, origin, preparation, bucket
 
@@ -64,7 +64,7 @@ Click **Create** at the bottom right, which creates your CDN account if you don'
 Fill out the **Configure Name** field:  
 
   * Specify the **Hostname** (**required**), which serves as the primary identifier for your CDN (for example, `example.testingcdn.net`).  
-  * Optionally, you may provide a custom **CNAME** (such as `myfirstcdn.cdnedge.bluemix.net`). If no CNAME is provided, one will be created for you. The suffix `cdnedge.bluemix.net` is automatically appended to the CNAME. Use of an inappropriate CNAME may lead to termination of services.
+  * Optionally, you may provide a custom **CNAME** (such as `myfirstcdn.cdn.appdomain.cloud`). If no CNAME is provided, one will be created for you. The suffix `cdn.appdomain.cloud` is automatically appended to the CNAME. Use of an inappropriate CNAME may lead to termination of services.
 
        ![Configure Name](images/configure-hostname-cname.png)  
 
@@ -89,7 +89,7 @@ Fill out the **Configure Your Origin** field: To configure this field, you must 
 
       * **SSL Certificate** This option appears _only_ when HTTPS Port is selected. If you select **HTTPS Port** for either Server or Object Storage, you can choose **Wildcard** or **DV SAN Certificate** as your SSL Certificate option. Both offer the enhanced security provided by HTTPS.
         * **Wildcard Certificate** allows HTTPS traffic only when using the **CNAME** and requires no further action on your part
-        * **DV SAN Certificate** allows HTTPS traffic over your domain, but requires additional steps to verify. See the [Completing Domain Control Validation for HTTPS](/docs/infrastructure/CDN/how-to-https.html#completing-domain-control-validation-for-https) page to understand the steps required and time constraints involved with choosing this option.
+        * **DV SAN Certificate** allows HTTPS traffic over your domain, but requires additional steps to verify. See the [Completing Domain Control Validation for HTTPS](/docs/infrastructure/CDN?topic=CDN-completing-domain-control-validation-for-https-with-dv-san) page to understand the steps required and time constraints involved with choosing this option.
 
 	     ![Configure origin server](images/ssl-cert-options.png)
 
@@ -109,7 +109,7 @@ Fill out the **Configure Your Origin** field: To configure this field, you must 
 
       * **SSL Certificate** This option appears _only_ when HTTPS Port is selected. If you select **HTTPS Port** for either Server or Object Storage, you can choose **Wildcard** or **DV SAN Certificate** as your SSL Certificate option. Both offer the enhanced security provided by HTTPS.
         * **Wildcard Certificate** allows HTTPS traffic only when using the **CNAME** and requires no further action on your part
-        * **DV SAN Certificate** allows HTTPS traffic over your domain, but it requires additional steps to verify. See the [Completing Domain Control Validation for HTTPS](/docs/infrastructure/CDN/how-to-https.html#completing-domain-control-validation-for-https) page to understand the steps required and time constraints involved with choosing this option.
+        * **DV SAN Certificate** allows HTTPS traffic over your domain, but it requires additional steps to verify. See the [Completing Domain Control Validation for HTTPS](/docs/infrastructure/CDN?topic=CDN-completing-domain-control-validation-for-https-with-dv-san#completing-domain-control-validation-for-https) page to understand the steps required and time constraints involved with choosing this option.
 
         ![Configure HTTPS](images/ssl-cert-options.png)
 
